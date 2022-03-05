@@ -1,0 +1,54 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Native Demo Suite" parallel="tests" thread-count="10" verbose="0">
+
+	<test name="Windows firefox Latest Demo App" parallel="methods"  enabled="true">
+		<parameter name="browserName" value="firefox"></parameter>
+		<parameter name="browserVersion" value="latest"></parameter>
+		<parameter name="platformName" value="windows 10"></parameter>
+		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
+		<parameter name="sauce_screenResolution" value="1600x1200"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoTest">
+			</class>
+		</classes>
+	</test>
+
+	<test name="Mac Chrome Latest-1 Demo App" parallel="methods"  enabled="true">
+		<parameter name="browserName" value="chrome"></parameter>
+		<parameter name="browserVersion" value="latest-1"></parameter>
+		<parameter name="platformName" value="macOS 11.00"></parameter>
+		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
+		<parameter name="sauce_screenResolution" value="1024x768"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoTest">
+			</class>
+		</classes>
+	</test>
+
+	<test name="Android Web Demo App" enabled="true">
+		<parameter name="browserName" value="chrome"></parameter>
+		<parameter name="platformName" value="android"></parameter>
+		<parameter name="automationName" value="UiAutomator2"></parameter>
+		<parameter name="appium:deviceName" value="samsung.*"></parameter>
+		<parameter name="appium:platformVersion" value="12"></parameter>
+		<parameter name="sauce_cacheId" value="android_web_123"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoTest">
+			</class>
+		</classes>
+	</test>
+
+	<test name="iOS Web Demo App" enabled="true">
+		<parameter name="browserName" value="safari"></parameter>
+		<parameter name="platformName" value="iOS"></parameter>
+		<parameter name="automationName" value="XCuiTest"></parameter>
+		<parameter name="appium:deviceName" value="iPhone.*"></parameter>
+		<parameter name="appium:platformVersion" value="14"></parameter>
+		<parameter name="sauce_cacheId" value="ios_web_123"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoTest">
+			</class>
+		</classes>
+	</test>
+
+</suite>
