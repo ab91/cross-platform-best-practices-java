@@ -8,8 +8,8 @@
 		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
 		<parameter name="sauce_screenResolution" value="1600x1200"></parameter>
 		<classes>
-			<class name="com.saucelabs.tests.DemoTest">
-			</class>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
 		</classes>
 	</test>
 
@@ -20,8 +20,8 @@
 		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
 		<parameter name="sauce_screenResolution" value="1024x768"></parameter>
 		<classes>
-			<class name="com.saucelabs.tests.DemoTest">
-			</class>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
 		</classes>
 	</test>
 
@@ -33,8 +33,8 @@
 		<parameter name="appium:platformVersion" value="12"></parameter>
 		<parameter name="sauce_cacheId" value="android_web_123"></parameter>
 		<classes>
-			<class name="com.saucelabs.tests.DemoTest">
-			</class>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
 		</classes>
 	</test>
 
@@ -46,8 +46,8 @@
 		<parameter name="appium:platformVersion" value="14"></parameter>
 		<parameter name="sauce_cacheId" value="ios_web_123"></parameter>
 		<classes>
-			<class name="com.saucelabs.tests.DemoTest">
-			</class>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
 		</classes>
 	</test>
 

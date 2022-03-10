@@ -27,7 +27,7 @@ public class BaseTest {
     private String SAUCE_EU_URL = "https://ondemand.eu-central-1.saucelabs.com/wd/hub";
     private String SAUCE_US_URL = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
     private String SAUCE_CAP = "sauce_";
-    protected String WEB_URL = "https://www.saucedemo.com";
+    protected String WEB_URL = "https://www.saucedemo.com/";
 
     @BeforeMethod
     public void setup(Method method) throws MalformedURLException {

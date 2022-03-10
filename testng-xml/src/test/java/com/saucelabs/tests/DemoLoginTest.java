@@ -1,18 +1,17 @@
 package com.saucelabs.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-
-@RunWith(Parameterized.class)
 public class DemoLoginTest extends BaseTest {
+
 
     @Test
     public void swagLabsSuccessLogin() {
         System.out.println("Start swagLabsSuccessLogin test");
+        WebDriver driver = getDriver();
 
         // login
         driver.navigate().to(WEB_URL);
@@ -28,6 +27,7 @@ public class DemoLoginTest extends BaseTest {
     @Test
     public void swagLabsFailedLogin() {
         System.out.println("Start swagLabsFailedLogin test");
+        WebDriver driver = getDriver();
 
         // login
         driver.navigate().to(WEB_URL);

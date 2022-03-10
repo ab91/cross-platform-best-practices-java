@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>junit5-examples</artifactId>
+
     <properties>
         <maven.surefire.version>3.0.0-M5</maven.surefire.version>
         <junit5.version>5.8.2</junit5.version>
     </properties>
-
-    <artifactId>junit5-examples</artifactId>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->

@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>testng-xml</artifactId>
+
     <properties>
         <testngXmlDir>src/test/resources/config</testngXmlDir>
         <testngXmlFile>myDemoTests.xml</testngXmlFile>
-        <testng.version>7.4.0</testng.version>
+        <testng.version>7.5</testng.version>
     </properties>
-
-    <artifactId>testng-xml</artifactId>
 
     <dependencies>
         <dependency>
