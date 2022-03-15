@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 
 public class DemoLoginTest extends BaseTest {
 
-    @DisplayName("Check successful login")
+  //  @DisplayName("Check successful login")
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/crossPlatformData.csv")
     public void swagLabsSuccessLogin(String aPlatform) {
@@ -27,7 +27,7 @@ public class DemoLoginTest extends BaseTest {
         Assertions.assertEquals(WEB_URL + "inventory.html",currentURL, "Failed to login" );
     }
 
-    @DisplayName("Check failed login")
+ //   @DisplayName("Check failed login")
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/crossPlatformData.csv")
     public void swagLabsFailedLogin(String aPlatform) {
