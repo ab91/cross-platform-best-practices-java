@@ -13,6 +13,7 @@
         <module>junit4-examples</module>
         <module>junit5-examples</module>
         <module>cucumber-junit-examples</module>
+        <module>cucumber-testng-examples</module>
     </modules>
 
     <properties>
