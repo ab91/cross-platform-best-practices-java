@@ -12,6 +12,7 @@
         <module>testng-xml</module>
         <module>junit4-examples</module>
         <module>junit5-examples</module>
+        <module>cucumber-junit-examples</module>
     </modules>
 
     <properties>
