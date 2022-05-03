@@ -47,4 +47,16 @@
 		</classes>
 	</test>
 
+	<test name="iOS Web Demo App new " enabled="true">
+		<parameter name="browserName" value="safari"></parameter>
+		<parameter name="platformName" value="iOS"></parameter>
+		<parameter name="automationName" value="XCuiTest"></parameter>
+		<parameter name="appium:deviceName" value="iPhone.*"></parameter>
+		<parameter name="appium:platformVersion" value="15"></parameter>
+		<parameter name="sauce_cacheId" value="ios_web_456"></parameter>
+		<classes>
+			<class name="com.saucelabs.RunCucumberTest"></class>
+		</classes>
+	</test>
+
 </suite>
