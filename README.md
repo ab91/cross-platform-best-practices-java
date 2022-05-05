@@ -112,6 +112,7 @@ We can use the TestNG framework without an XML file, but I think that the TestNG
 We define the path to the XML file in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/pom.xml#L36).
 
 In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/src/test/resources/config/myDemoTests.xml#L2), each test section is a platform that we want to run with the name of the capability and the value.  
+Defining the parallel execution is done In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/src/test/resources/config/myDemoTests.xml#L2)    
 I can customize and define how to run the test in parallel.  
 For example, for running on a desktop, I also define parallel in [this section](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/src/test/resources/config/myDemoTests.xml#L4), meaning that all the 3 tests will run on 3 windows10 and firefox browser in parallel.  
 But I didn’t define that for real devices – so the tests will run sequentially on each device.  
