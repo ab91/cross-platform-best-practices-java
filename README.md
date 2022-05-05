@@ -55,12 +55,12 @@ In this way: 8 tests will run in parallel.
 ## JUnit4 
 In my examples, I am using maven as the build automation tool, there are other tools such as Gradle. 
 
-From the [maven website](https://mvnrepository.com/artifact/junit/junit) I selected Junit4 latest version and copied it to my [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/pom.xml#L20) \ 
-I defined [4 parameters](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L30) and created [a two-dimensional array](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L41) with the platforms I want to run my tests \
-When I run the tests, each parameter will get the values from the two-dimensional array \
-So, for example, when I run my code with the first line in the array, I will set [the capability of](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L73) \ 
-Browsername with chrome \
-Browser version with latest -1 \
+From the [maven website](https://mvnrepository.com/artifact/junit/junit) I selected Junit4 latest version and copied it to my [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/pom.xml#L20)  
+I defined [4 parameters](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L30) and created [a two-dimensional array](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L41) with the platforms I want to run my tests  
+When I run the tests, each parameter will get the values from the two-dimensional array  
+So, for example, when I run my code with the first line in the array, I will set [the capability of](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L73)  
+Browsername with chrome  
+Browser version with latest -1  
 And platform name with mac 11
 
 The reason I added the platform parameter that can have the values "desktop", "android" or "iOS" is because I want to run my web app tests on desktop VMs, and for that, I am using Selenium. 
