@@ -2,7 +2,7 @@
 The project goal is to show how to run cross-browser testing/cross-device testing and how to run in parallel.
 I will explain that using Java with the popular frameworks: 
 
-- [JUnit4](#JUit4) 
+- [JUnit4](#JUnit4) 
 - Junit5
 - TestNG
 - Cucumber + Junit4
