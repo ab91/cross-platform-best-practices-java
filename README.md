@@ -3,8 +3,8 @@ The project goal is to show how to run cross-browser testing/cross-device testin
 I will explain that using Java with the popular frameworks: 
 
 - [JUnit4](#JUnit4) 
-- Junit5
-- TestNG
+- [JUnit5](#JUnit5) 
+- [TestNG](#TestNG) 
 - Cucumber + Junit4
 - Cucumber + TestNG 
 
@@ -67,8 +67,7 @@ The reason I added the platform parameter that can have the values "desktop", "a
 But I also want to run my tests on Android and iPhone devices, so I am using Appium.
 Selenium and Appium Capabilities are different, so I need to add this differentiation. 
 
-Defining the parallel execution is done In the [pom file](Defining the parallel execution is done In the pom file by adding the maven-surefire-plugin with the configuration as it is here
-) by adding the maven-surefire-plugin
+Defining the parallel execution is done In the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit4-examples/pom.xml#L34) by adding the maven-surefire-plugin
 
 Running the Web App tests on Sauce Labs:
 
@@ -78,3 +77,42 @@ Running the Web App tests on Sauce Labs:
     // If using the EU DC
     mvn clean install -Dregion=eu
 > NOTE: Make sure you are in the folder `junit4-examples` when you execute these commands
+
+## JUnit5
+In my examples, I am using maven as the build automation tool, there are other tools such as Gradle. 
+
+From the [maven website](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter) I selected Junit5 latest version and copied it to my [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit5-examples/pom.xml#L22)  
+Please note that JUnit5 is called Junit Jupiter    
+
+In JUnit5, there are many new options to use [parameters in methods](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources), but the challenge for me was that this is per method, and I was looking for something global but couldn’t find it.  
+So I selected to use [CSV file](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources-CsvFileSource) and added the parameters to all [the tests](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit5-examples/src/test/java/com/saucelabs/tests/DemoBasicTest.java#L16)   
+The CSV file format is as you want to handle it later. I created the [CSV file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit5-examples/src/test/resources/crossPlatformData.csv) that includes the capability name and the capability value separated by slashes 
+
+[BeforeEach method](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit5-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L40) will run before each test. I found out that the testInfo parameter includes the CSV file parameters that we defined for each method. Each time, testInfo will include a row from the csv file and a row is a platform we want to run.  
+I developed [a method](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit5-examples/src/test/java/com/saucelabs/tests/BaseTest.java#L108) to handle the data from the csv file and set them in a map structure where the key is the capability name, and the value is the capability value.
+
+Defining the parallel execution is done In the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/junit5-examples/pom.xml#L38) by adding the maven-surefire-plugin  
+There are many options to run in parallel using JUnit5 and more info can be found in the [JUnit5 documentation](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)
+
+Running the Web App tests on Sauce Labs:
+
+    // If using the US DC
+    mvn clean install -Dregion=us
+    
+    // If using the EU DC
+    mvn clean install -Dregion=eu
+> NOTE: Make sure you are in the folder `junit5-examples` when you execute these commands
+
+## TestNG
+In my examples, I am using maven as the build automation tool, there are other tools such as Gradle. 
+
+From the [maven website](https://mvnrepository.com/artifact/org.testng/testng) I selected TestNG latest version and copied it to my [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/pom.xml#L22)  
+
+Running the Web App tests on Sauce Labs:
+
+    // If using the US DC
+    mvn clean install -Dregion=us
+    
+    // If using the EU DC
+    mvn clean install -Dregion=eu
+> NOTE: Make sure you are in the folder `testng-xml` when you execute these commands
