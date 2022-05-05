@@ -108,6 +108,15 @@ In my examples, I am using maven as the build automation tool, there are other t
 
 From the [maven website](https://mvnrepository.com/artifact/org.testng/testng) I selected TestNG latest version and copied it to my [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/pom.xml#L22)  
 
+We can use the TestNG framework without an XML file, but I think that the TestNG XML file gives a lot of options for controlling and running on different platforms and using parallel executions.  
+We define the path to the XML file in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/pom.xml#L36).
+
+In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/src/test/resources/config/myDemoTests.xml#L2), each test section is a platform that we want to run with the name of the capability and the value.  
+I can customize and define how to run the test in parallel.  
+For example, for running on a desktop, I also define parallel in [this section](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/src/test/resources/config/myDemoTests.xml#L4), meaning that all the 3 tests will run on 3 windows10 and firefox browser in parallel.  
+But I didn’t define that for real devices – so the tests will run sequentially on each device.  
+It is easy to read the parameters from the xml file [to the test](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/src/test/java/com/saucelabs/tests/BaseTest.java#L53) and set the capabilities according to the values
+ 
 Running the Web App tests on Sauce Labs:
 
     // If using the US DC
