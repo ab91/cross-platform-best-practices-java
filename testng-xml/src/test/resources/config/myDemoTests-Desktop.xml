@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Native Demo Suite" parallel="tests" thread-count="10" verbose="0">
+
+	<test name="Windows firefox Latest Demo App" parallel="methods"  enabled="true">
+		<parameter name="browserName" value="firefox"></parameter>
+		<parameter name="browserVersion" value="latest"></parameter>
+		<parameter name="platformName" value="windows 10"></parameter>
+		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
+		<parameter name="sauce_screenResolution" value="1600x1200"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
+		</classes>
+	</test>
+
+	<test name="Mac Chrome Latest-1 Demo App" parallel="methods"  enabled="true">
+		<parameter name="browserName" value="chrome"></parameter>
+		<parameter name="browserVersion" value="latest-1"></parameter>
+		<parameter name="platformName" value="macOS 11.00"></parameter>
+		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
+		<parameter name="sauce_screenResolution" value="1024x768"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
+		</classes>
+	</test>
+
+</suite>
