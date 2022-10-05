@@ -20,24 +20,27 @@ jobs:
         with:
           java-version: 11
           distribution: 'adopt'
-      - name: Action Test
-        uses: saucelabs/sauce-connect-action@v2
-        with:
-          username: ${{ secrets.SAUCE_USERNAME }}
-          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+#      - name: Action Test
+#        uses: saucelabs/sauce-connect-action@v2
+#        with:
+#          username: ${{ secrets.SAUCE_USERNAME }}
+#          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+#        env:
+#          SAUCE_REIGN: eu-central
+#          SAUCE_TUNNEL_NAME: eyalyovel_tunnel_name
+      - name: Start tunnel
         env:
-          SAUCE_REIGN: eu-central
-          SAUCE_TUNNEL_NAME: eyalyovel_tunnel_name
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run |
+          curl https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz | tar -xz
+          chmod 777 -R ./sc-4.8.1-linux
+          PATH=./sc-4.8.1-linux/bin:$PATH
+          ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name eyalyovel_tunnel_name
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
           mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
-#          echo '::set-output name=SELECTED_COLOR::$(mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X)'
         id: random-color-generator
-#      - name: Get color
-#        env:
-#          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-#          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-#        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
