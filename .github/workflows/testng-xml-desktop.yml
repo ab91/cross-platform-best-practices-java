@@ -40,7 +40,7 @@ jobs:
           process_id=$!
           echo "PID: $process_id"
           #Add SL_Tunnel env variable to be stopped later
-          envman add --key SL_TUNNEL --value "${process_id}"
+          echo "::set-output name=SL_TUNNEL::${process_id}"
       - name: Test
         run: echo $SL_TUNNEL
       - name: Run tests
