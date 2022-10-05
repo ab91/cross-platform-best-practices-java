@@ -25,7 +25,8 @@ jobs:
         with:
           username: ${{ secrets.SAUCE_USERNAME }}
           accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-          tunnelName: github-action-tunnel
+          region: "eu-central"
+          tunnel-name: "eyalyovel_tunnel_name"
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
