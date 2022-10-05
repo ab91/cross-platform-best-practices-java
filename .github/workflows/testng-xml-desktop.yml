@@ -23,10 +23,14 @@ jobs:
         distribution: 'adopt'
     - name: Get env name
       env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-      run: echo "The username is $SAUCE_USERNAME "
+        MY_ENV: "Hello world"
+      run: echo "The username is MY_ENV "
     - name: Run testng tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-      run: mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
+        SAUCE_SESSION_ID: "Hello"
+      run: |
+        mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
+        echo "hi you"
+        echo "$SAUCE_SESSION_ID"
