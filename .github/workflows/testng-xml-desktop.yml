@@ -29,8 +29,10 @@ jobs:
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        SAUCE_SESSION_ID: "Hello"
       run: |
-        mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
-        echo "hi you"
-        echo "$SAUCE_SESSION_ID"
+        run: echo '::set-output name=RUN_TESTS::mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X'
+#        mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
+      id: run-sauce-tests
+    - name: Get output
+      run: |
+        run: echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS }}"
