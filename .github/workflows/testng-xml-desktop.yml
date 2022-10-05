@@ -21,10 +21,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Get env name
-      env:
-        MY_ENV: "Hello world"
-      run: echo "The ENV is $MY_ENV "
+#    - name: Get env name
+#      env:
+#        MY_ENV: "Hello world"
+#      run: echo "The ENV is $MY_ENV "
     - name: Run testng tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
