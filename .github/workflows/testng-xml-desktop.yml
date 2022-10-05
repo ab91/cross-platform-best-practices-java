@@ -22,10 +22,10 @@ jobs:
           distribution: 'adopt'
       - name: Action Test
         uses: saucelabs/sauce-connect-action@v2
-          with:
-              username: ${{ secrets.SAUCE_USERNAME }}
-              accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-              tunnelName: github-action-tunnel
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnelName: github-action-tunnel
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
