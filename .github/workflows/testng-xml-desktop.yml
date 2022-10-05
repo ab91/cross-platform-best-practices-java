@@ -24,5 +24,9 @@ jobs:
     - name: Run testng tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      run: echo "The username is $env.SAUCE_USERNAME "
+    - name: Run testng tests
+      env:
+        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
