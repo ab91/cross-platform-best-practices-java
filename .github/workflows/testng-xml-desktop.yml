@@ -24,7 +24,7 @@ jobs:
     - name: Get env name
       env:
         MY_ENV: "Hello world"
-      run: echo "The username is MY_ENV "
+      run: echo "The ENV is $MY_ENV "
     - name: Run testng tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
