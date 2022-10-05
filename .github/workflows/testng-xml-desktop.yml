@@ -30,11 +30,11 @@ jobs:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: |
-        run: echo '::set-output name=RUN_TESTS'
+        echo '::set-output name=RUN_TESTS'
         mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
-        run: echo '::set-output name=RUN_TESTS2'
+        echo '::set-output name=RUN_TESTS2'
       id: run-sauce-tests
     - name: Get output
       run: |
-        run: echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS }}"
-        run: echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS2 }}"
+        echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS }}"
+        echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS2 }}"
