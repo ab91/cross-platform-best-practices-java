@@ -32,7 +32,7 @@ jobs:
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run |
+        run: |
           curl https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz | tar -xz
           chmod 777 -R ./sc-4.8.1-linux
           PATH=./sc-4.8.1-linux/bin:$PATH
