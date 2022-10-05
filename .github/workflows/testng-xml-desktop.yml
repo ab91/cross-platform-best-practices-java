@@ -25,8 +25,9 @@ jobs:
         with:
           username: ${{ secrets.SAUCE_USERNAME }}
           accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-          region: eu-central
-          tunnelName: eyalyovel_tunnel_name
+        env:
+          SAUCE_REIGN: eu-central
+          SAUCE_TUNNEL_NAME: eyalyovel_tunnel_name
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
