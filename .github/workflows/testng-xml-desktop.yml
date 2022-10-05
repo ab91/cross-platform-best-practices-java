@@ -28,7 +28,7 @@ jobs:
 #        env:
 #          SAUCE_REIGN: eu-central
 #          SAUCE_TUNNEL_NAME: eyalyovel_tunnel_name
-      - name: Start tunnel
+      - name: Open Tunnel
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
@@ -39,10 +39,15 @@ jobs:
           sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name eyalyovel_tunnel_name > /dev/null 2>&1 &
           process_id=$!
           echo "PID: $process_id"
+          #Add SL_Tunnel env variable to be stopped later
+          envman add --key SL_TUNNEL --value "${process_id}"
+      - name: Test
+        run: echo $SL_TUNNEL
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
           mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
-        id: random-color-generator
+      - name: Close Tunnel
+        run: echo $SL_TUNNEL
