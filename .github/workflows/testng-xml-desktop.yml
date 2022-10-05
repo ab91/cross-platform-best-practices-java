@@ -51,4 +51,4 @@ jobs:
         run: |
           mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
       - name: Close Tunnel
-        run: echo ${{ steps.open_tunnel.outputs.SL_TUNNEL }}
+        run: kill ${{ steps.open_tunnel.outputs.SL_TUNNEL }}
