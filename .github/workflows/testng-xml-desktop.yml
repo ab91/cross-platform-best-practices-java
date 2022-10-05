@@ -7,7 +7,6 @@ on:
   push:
     branches: [ main ]
   pull_request:
-
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -15,22 +14,14 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-    - name: Run testng tests
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-      run: |
-#        echo '::set-output name=RUN_TESTS::mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X'
-        mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
-#        echo '::set-output name=RUN_TESTS2'
-        id: run-sauce-tests
-#    - name: Get output
-#      run: |
-#        echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS }}"
-#        echo "The output is  ${{ steps.run-sauce-tests.outputs.RUN_TESTS2 }}"
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'adopt'
+      - name: Run tests
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
