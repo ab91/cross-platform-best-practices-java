@@ -28,4 +28,7 @@ jobs:
           echo '::set-output name=SELECTED_COLOR::$(mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X)'
         id: random-color-generator
       - name: Get color
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
