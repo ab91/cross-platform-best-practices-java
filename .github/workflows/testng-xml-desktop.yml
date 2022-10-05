@@ -20,15 +20,24 @@ jobs:
         with:
           java-version: 11
           distribution: 'adopt'
+      - name: Action Test
+        steps:
+            - uses: saucelabs/sauce-connect-action@v2
+            with:
+              username: ${{ secrets.SAUCE_USERNAME }}
+              accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+              tunnelName: github-action-tunnel
+              configFile: ${{ github.workspace }}/sc-configuration/config.yaml
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
-          echo '::set-output name=SELECTED_COLOR::$(mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X)'
+          mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
+#          echo '::set-output name=SELECTED_COLOR::$(mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X)'
         id: random-color-generator
-      - name: Get color
-        env:
-          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+#      - name: Get color
+#        env:
+#          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+#          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+#        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
