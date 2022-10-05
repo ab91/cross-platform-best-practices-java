@@ -36,7 +36,7 @@ jobs:
           curl https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz | tar -xz
           chmod 777 -R ./sc-4.8.1-linux
           PATH=./sc-4.8.1-linux/bin:$PATH
-          sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name eyalyovel_tunnel_name
+          sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name eyalyovel_tunnel_name &
       - name: Run tests
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
