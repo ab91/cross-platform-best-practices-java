@@ -10,7 +10,7 @@ on:
 
 env:
   SAUCE_TUNNEL_NAME: eyalyovel_tunnel_name
-  
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -32,7 +32,7 @@ jobs:
           curl https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz | tar -xz
           chmod 777 -R ./sc-4.8.1-linux
           PATH=./sc-4.8.1-linux/bin:$PATH
-          sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name SAUCE_TUNNEL_NAME > /dev/null 2>&1 &
+          sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name $SAUCE_TUNNEL_NAME > /dev/null 2>&1 &
           process_id=$!
           echo "PID: $process_id"
           #Add SL_Tunnel env variable to be stopped later
