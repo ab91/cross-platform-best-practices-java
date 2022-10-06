@@ -85,6 +85,13 @@ public class BaseTest {
             sauceOptions.setCapability("build", buildVal == null ? buildLocal : buildVal);
         }
 
+        // handle tunnel
+        String tunnelName = System.getenv("SAUCE_TUNNEL_NAME");
+        if (!tunnelName.isEmpty()) { //handle build cap
+            System.out.println("*** tunnel name is " + tunnelName);
+            sauceOptions.setCapability("tunnelName", tunnelName);
+        }
+
         caps.setCapability("sauce:options", sauceOptions);
 
         try {
