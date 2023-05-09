@@ -25,10 +25,34 @@
 		</classes>
 	</test>
 
+	<test name="Android Web Demo App Emulator" enabled="true">
+		<parameter name="browserName" value="chrome"></parameter>
+		<parameter name="platformName" value="android"></parameter>
+		<parameter name="appium:automationName" value="UiAutomator2"></parameter>
+		<parameter name="appium:deviceName" value="Android GoogleAPI Emulator"></parameter>
+		<parameter name="appium:platformVersion" value="11.0"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
+		</classes>
+	</test>
+
+	<test name="iOS Web Demo App Simulator" enabled="true">
+		<parameter name="browserName" value="safari"></parameter>
+		<parameter name="platformName" value="iOS"></parameter>
+		<parameter name="appium:automationName" value="XCuiTest"></parameter>
+		<parameter name="appium:deviceName" value="iPhone 13 Pro Simulator"></parameter>
+		<parameter name="appium:platformVersion" value="15.5"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoBasicTest"></class>
+			<class name="com.saucelabs.tests.DemoLoginTest"></class>
+		</classes>
+	</test>
+
 	<test name="Android Web Demo App" enabled="true">
 		<parameter name="browserName" value="chrome"></parameter>
 		<parameter name="platformName" value="android"></parameter>
-		<parameter name="automationName" value="UiAutomator2"></parameter>
+		<parameter name="appium:automationName" value="UiAutomator2"></parameter>
 		<parameter name="appium:deviceName" value="samsung.*"></parameter>
 		<parameter name="appium:platformVersion" value="12"></parameter>
 		<parameter name="sauce_cacheId" value="android_web_123"></parameter>
@@ -41,7 +65,7 @@
 	<test name="iOS Web Demo App" enabled="true">
 		<parameter name="browserName" value="safari"></parameter>
 		<parameter name="platformName" value="iOS"></parameter>
-		<parameter name="automationName" value="XCuiTest"></parameter>
+		<parameter name="appium:automationName" value="XCuiTest"></parameter>
 		<parameter name="appium:deviceName" value="iPhone.*"></parameter>
 		<parameter name="appium:platformVersion" value="14"></parameter>
 		<parameter name="sauce_cacheId" value="ios_web_123"></parameter>

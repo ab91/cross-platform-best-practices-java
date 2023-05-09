@@ -76,6 +76,8 @@ public class BaseTest {
         sauceOptions.setCapability("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.setCapability("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
         sauceOptions.setCapability("name", methodName);
+        sauceOptions.setCapability("extendedDebugging", true);
+        sauceOptions.setCapability("capturePerformance", true);
 
         if (!isBuildCap) { //handle build cap
             LocalDateTime dateTime = LocalDateTime.now();
@@ -87,7 +89,7 @@ public class BaseTest {
 
         // handle tunnel
         String tunnelName = System.getenv("SAUCE_TUNNEL_NAME");
-        if (!tunnelName.isEmpty()) { //handle build cap
+        if (!(tunnelName == null)) { //handle build cap
             System.out.println("*** tunnel name is " + tunnelName);
             sauceOptions.setCapability("tunnelName", tunnelName);
         }
