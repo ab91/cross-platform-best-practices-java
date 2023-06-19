@@ -29,9 +29,9 @@ jobs:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
-          curl https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz | tar -xz
-          chmod 777 -R ./sc-4.8.1-linux
-          PATH=./sc-4.8.1-linux/bin:$PATH
+          curl https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz | tar -xz
+          chmod 777 -R ./sc-4.9.0-linux
+          PATH=./sc-4.9.0-linux/bin:$PATH
           sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name $SAUCE_TUNNEL_NAME -B all > /dev/null 2>&1 &
           process_id=$!
           echo "PID: $process_id"
