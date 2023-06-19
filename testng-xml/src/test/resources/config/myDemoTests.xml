@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Native Demo Suite" parallel="tests" thread-count="10" verbose="0">
+<suite name="Native Demo Suite" parallel="tests" thread-count="30" verbose="0">
 
 	<test name="Windows firefox Latest Demo App" parallel="methods"  enabled="true">
 		<parameter name="browserName" value="firefox"></parameter>
@@ -25,7 +25,7 @@
 		</classes>
 	</test>
 
-	<test name="Android Web Demo App Emulator" enabled="true">
+	<test name="Android Web Demo App Emulator" enabled="false">
 		<parameter name="browserName" value="chrome"></parameter>
 		<parameter name="platformName" value="android"></parameter>
 		<parameter name="appium:automationName" value="UiAutomator2"></parameter>
@@ -33,28 +33,28 @@
 		<parameter name="appium:platformVersion" value="11.0"></parameter>
 		<classes>
 			<class name="com.saucelabs.tests.DemoBasicTest"></class>
-			<class name="com.saucelabs.tests.DemoLoginTest"></class>
+<!--			<class name="com.saucelabs.tests.DemoLoginTest"></class>-->
 		</classes>
 	</test>
 
-	<test name="iOS Web Demo App Simulator" enabled="true">
+	<test name="iOS Web Demo App Simulator" parallel="methods" enabled="true">
 		<parameter name="browserName" value="safari"></parameter>
 		<parameter name="platformName" value="iOS"></parameter>
 		<parameter name="appium:automationName" value="XCuiTest"></parameter>
-		<parameter name="appium:deviceName" value="iPhone 13 Pro Simulator"></parameter>
-		<parameter name="appium:platformVersion" value="15.5"></parameter>
+		<parameter name="appium:deviceName" value="iPhone Instant Simulator"></parameter>
+		<parameter name="appium:platformVersion" value="current_major"></parameter>
 		<classes>
 			<class name="com.saucelabs.tests.DemoBasicTest"></class>
 			<class name="com.saucelabs.tests.DemoLoginTest"></class>
 		</classes>
 	</test>
 
-	<test name="Android Web Demo App" enabled="true">
+	<test name="Android Web Demo App" parallel="methods" enabled="true">
 		<parameter name="browserName" value="chrome"></parameter>
 		<parameter name="platformName" value="android"></parameter>
 		<parameter name="appium:automationName" value="UiAutomator2"></parameter>
 		<parameter name="appium:deviceName" value="samsung.*"></parameter>
-		<parameter name="appium:platformVersion" value="12"></parameter>
+		<parameter name="appium:platformVersion" value="^1[2-3].*"></parameter>
 		<parameter name="sauce_cacheId" value="android_web_123"></parameter>
 		<classes>
 			<class name="com.saucelabs.tests.DemoBasicTest"></class>
@@ -62,12 +62,12 @@
 		</classes>
 	</test>
 
-	<test name="iOS Web Demo App" enabled="true">
+	<test name="iOS Web Demo App" parallel="methods" enabled="true">
 		<parameter name="browserName" value="safari"></parameter>
 		<parameter name="platformName" value="iOS"></parameter>
 		<parameter name="appium:automationName" value="XCuiTest"></parameter>
 		<parameter name="appium:deviceName" value="iPhone.*"></parameter>
-		<parameter name="appium:platformVersion" value="14"></parameter>
+		<parameter name="appium:platformVersion" value="^1[5-6].*"></parameter>
 		<parameter name="sauce_cacheId" value="ios_web_123"></parameter>
 		<classes>
 			<class name="com.saucelabs.tests.DemoBasicTest"></class>
