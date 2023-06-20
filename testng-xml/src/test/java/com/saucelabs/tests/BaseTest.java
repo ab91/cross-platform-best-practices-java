@@ -113,9 +113,9 @@ public class BaseTest {
             if (!bSuccess)
                 ((JavascriptExecutor) getDriver()).executeScript("sauce:context=" +result.getThrowable().getMessage());
 
-            String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s",
-                    (((RemoteWebDriver) getDriver()).getSessionId()).toString(), "some job name");
-            System.out.println(message);
+//            String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s",
+//                    (((RemoteWebDriver) getDriver()).getSessionId()).toString(), "some job name");
+//            System.out.println(message);
         } finally {
             System.out.println("Release driver");
             getDriver().quit();
