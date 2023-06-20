@@ -1,0 +1,13 @@
+apiVersion: v1alpha
+kind: imagerunner
+sauce:
+  region: eu-central-1
+suites:
+  - name: Hosted Test Orchestration Demo
+    workload: webdriver
+#    image: $DOCKERHUB_USERNAME/cross-platform-best-practices-java-docker:latest
+    image: eyalyovelsauce/cross-platform-best-practices-java-docker:0.0.1
+    entrypoint: mvn test -pl testng-xml -DtestngXmlFile=myDemoTests.xml -X
+#    imagePullAuth:
+#      user: $DOCKER_USERNAME
+#      token: $DOCKER_PASSWORD
