@@ -25,17 +25,17 @@
 		</classes>
 	</test>
 
-	<test name="Android Web Demo App Emulator" enabled="false">
-		<parameter name="browserName" value="chrome"></parameter>
-		<parameter name="platformName" value="android"></parameter>
-		<parameter name="appium:automationName" value="UiAutomator2"></parameter>
-		<parameter name="appium:deviceName" value="Android GoogleAPI Emulator"></parameter>
-		<parameter name="appium:platformVersion" value="11.0"></parameter>
-		<classes>
-			<class name="com.saucelabs.tests.DemoBasicTest"></class>
-<!--			<class name="com.saucelabs.tests.DemoLoginTest"></class>-->
-		</classes>
-	</test>
+<!--	<test name="Android Web Demo App Emulator" enabled="false">-->
+<!--		<parameter name="browserName" value="chrome"></parameter>-->
+<!--		<parameter name="platformName" value="android"></parameter>-->
+<!--		<parameter name="appium:automationName" value="UiAutomator2"></parameter>-->
+<!--		<parameter name="appium:deviceName" value="Android GoogleAPI Emulator"></parameter>-->
+<!--		<parameter name="appium:platformVersion" value="11.0"></parameter>-->
+<!--		<classes>-->
+<!--			<class name="com.saucelabs.tests.DemoBasicTest"></class>-->
+<!--&lt;!&ndash;			<class name="com.saucelabs.tests.DemoLoginTest"></class>&ndash;&gt;-->
+<!--		</classes>-->
+<!--	</test>-->
 
 	<test name="iOS Web Demo App Simulator" parallel="methods" enabled="true">
 		<parameter name="browserName" value="safari"></parameter>
