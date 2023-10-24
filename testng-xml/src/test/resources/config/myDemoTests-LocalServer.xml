@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Web Demo Suite on Local Server" parallel="tests" thread-count="10" verbose="0">
+
+	<test name="Mac Chrome Latest-1 Demo App" parallel="methods"  enabled="true">
+		<parameter name="browserName" value="chrome"></parameter>
+		<parameter name="browserVersion" value="latest-1"></parameter>
+		<parameter name="platformName" value="macOS 11.00"></parameter>
+		<parameter name="sauce_tags" value="Demo,Web,W3, Local"></parameter>
+		<parameter name="sauce_screenResolution" value="1024x768"></parameter>
+		<classes>
+			<class name="com.saucelabs.tests.DemoLoginLocalTest"></class>
+		</classes>
+	</test>
+
+</suite>

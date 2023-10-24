@@ -1,0 +1,25 @@
+apiVersion: v1alpha
+kind: imagerunner
+sauce:
+  region: eu-central-1
+  tunnel:
+    name: API_Tunnel
+suites:
+  - name: Hosted Test Orchestration Demo for Local Web
+    workload: webdriver
+#    image: $DOCKERHUB_USERNAME/sauce-java-appium-cross-platform-docker:latest
+    image: eyalyovelsauce/cross-platform-best-practices-java-local-docker:0.0.2
+    entrypoint: mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-LocalServer.xml -Dhttp.proxyHost=host.sauceconnect.internal -Dhttp.proxyPort=1080 -X
+#    entrypoint: curl http://localhost:4000/give_me_valid_username
+#    entrypoint: env
+
+    env:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+#      SAUCE_TUNNEL_NAME: API_Tunnel
+#      SAUCE_TUNNEL_NAME: demoApp_tunnel
+      SAUCE_TUNNEL_NAME: API_Tunnel
+
+#    imagePullAuth:
+#      user: $DOCKER_USERNAME
+#      token: $DOCKER_PASSWORD

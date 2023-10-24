@@ -12,7 +12,8 @@ COPY junit5-examples/src /so/junit5-examples/src/
 COPY junit5-examples/pom.xml /so/junit5-examples
 COPY testng-xml/src /so/testng-xml/src/
 COPY testng-xml/pom.xml /so/testng-xml
-CMD mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
+# CMD mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-LocalServer.xml -X
+CMD curl http://localhost:4000/give_me_valid_username
 
 
 

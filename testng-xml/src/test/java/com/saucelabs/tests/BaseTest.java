@@ -95,7 +95,6 @@ public class BaseTest {
         }
 
         caps.setCapability("sauce:options", sauceOptions);
-
         try {
             driver.set(new RemoteWebDriver(url, caps));
         } catch (Exception e) {

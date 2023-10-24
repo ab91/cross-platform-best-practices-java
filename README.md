@@ -126,3 +126,116 @@ Running the Web App tests on Sauce Labs:
     // If using the EU DC
     mvn clean install -Dregion=eu
 > NOTE: Make sure you are in the folder `testng-xml` when you execute these commands
+
+## Running the testNG tests using Sauce Orchestrate (SO)
+You can run the Appium tests using SO directly from GitHub using GitHub Actions
+1. Add two new variables: SAUCE_USERNAME and SAUCE_ACCESS_KEY to your GitHub Repository Secret, as shown in the snapshot    
+   <img src="./graphics/GitHub_Repository_Secret.png" alt="GitHubSecret"/>
+2. Add also the two variables: DOCKERHUB_USERNAME and DOCKERHUB_TOKEN to your GitHub Repository Secret with your Docker username and password.
+
+   More info can be found [here](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
+2. Select (1) Actions tab -> (2) Click on "native app workflow using ImageRunner" (3) Click "Run workflow" and (4) Run workflow
+3. GitHub Actions starts to run     
+   <img src="./graphics/github_action_SO_workflow.png" alt="startRunGitHubActionsSO" />
+
+### The steps to create the image, run a local container and run it using SO
+1. Run the tests locally from the main folder by using the command:
+
+```java
+        mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-Desktop.xml -X
+```
+2. Make sure tests run as expected.
+3. Check docker is up and running by using the command:
+
+```java
+        docker info
+```
+4. Create the [docker file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/Dockerfile)
+5. build the image from the docker file
+```java
+        // The format
+        $ docker build -t <docker username>/<project-name>-<container-name>:<tag>  <path-to-dockerfile>
+       // Example
+        $ docker build -t eyalyovelsauce/cross-platform-best-practices-java-docker:0.0.1 .
+```
+6. The image should be in the local docker
+   <img src="./graphics/Docker_Image_local.png" alt="local_docker"/>
+7. Run the image container locally
+```java
+        $ docker run --rm -e SAUCE_USERNAME=${SAUCE_USERNAME}  -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY}  eyalyovelsauce/cross-platform-best-practices-java-docker:0.0.1
+```
+8. Push Image to a Docker Registry
+```java
+        $ docker login
+        $ docker push eyalyovelsauce/cross-platform-best-practices-java-docker:0.0.1
+```
+9. The image should be in the docker Hub
+   <img src="./graphics/Docker_Image_hub.png" alt="hub_docker"/>
+10.Run SO by using the saucectl:
+```java
+        $ saucectl run
+```
+The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cross-platform/blob/main/.sauce/config.yml)
+
+### Run on local resources: 
+How to use SO where there is a need to use local resources (or not a public resources)    
+In this example I'm using a local web server (http://localhost:3000/) and get the username from a local server (http://localhost:4000/give_me_valid_username)       
+The steps to create the image, run a local container and run it using SO     
+1. Clone/fork the [Sauce Demo App](https://github.com/saucelabs/sample-app-web)
+2. Build the application with
+```java
+        $ npm run start
+```
+This will build the application, start Chrome and load the website on http://localhost:3000/     
+3. Clone/fork my [Demo Server](https://github.com/eyaly/UsernameDemoServer)
+4. Go to folder src/main/java
+5. Build the server with
+```java
+        $ javac UsernameServer.java
+        $ java UsernameServer
+```
+This will start the server, and it will print a message indicating that the server is running on port 4000.
+
+3 Download Sauce Connect to your machine and create a local sauce tunnel: 
+```java
+        $  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central --tunnel-name demoApp_tunnel
+```
+4. Run the tests locally from the main folder by using the command:
+
+```java
+        export SAUCE_TUNNEL_NAME=demoApp_tunnel ; mvn test -pl testng-xml -DtestngXmlFile=myDemoTests-LocalServer.xml -X
+
+```
+This command will create a system env "SAUCE_TUNNEL_NAME" and will run a test on the local demo app with a tunnel
+5. Make sure tests run as expected.
+6. Check docker is up and running by using the command:
+
+```java
+        docker info
+```
+4. Create the [docker file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/Dockerfile-local)
+5. build the image from the docker file
+```java
+        // The format
+        $ docker build -t <docker username>/<project-name>-<container-name>:<tag>  -f <path to the dockerfile> <path to the directory containing the Dockerfile>
+       // Example
+        $ docker build -t eyalyovelsauce/cross-platform-best-practices-java-local-docker:0.0.1 -f Dockerfile-local .
+```
+6. The image should be in the local docker      
+7. Run the image container locally
+```java
+        $ docker run --rm -e SAUCE_TUNNEL_NAME=demoApp_tunnel -e SAUCE_USERNAME=${SAUCE_USERNAME}  -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY}  eyalyovelsauce/cross-platform-best-practices-java-local-docker:0.0.1
+```
+8. Push Image to a Docker Registry
+```java
+        $ docker login
+        $ docker push eyalyovelsauce/cross-platform-best-practices-java-local-docker:0.0.1
+```
+9. The image should be in the docker Hub
+8. Run SO by using the saucectl:
+```java
+        $ 
+
+```saucectl run -c ./.sauce/config_local.yml
+The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cross-platform/blob/main/.sauce/config_local.yml)
+

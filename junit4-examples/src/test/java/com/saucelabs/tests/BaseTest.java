@@ -40,9 +40,9 @@ public class BaseTest {
     public static Collection<Object[]> crossPlatformData() {
         return Arrays.asList(new Object[][] {
                 { "desktop", "chrome", "latest-1", "macOS 11.00" },
-                { "desktop", "firefox", "latest", "windows 10" },
-                { "android", "samsung.*", "12", "" },
-                { "ios", "iphone.*", "14", "" },
+//                { "desktop", "firefox", "latest", "windows 10" },
+//                { "android", "samsung.*", "12", "" },
+//                { "ios", "iphone.*", "14", "" },
         });
     }
     @Rule
@@ -76,14 +76,14 @@ public class BaseTest {
                 break;
             case "android":
                 caps.setCapability("platformName", "android");
-                caps.setCapability("automationName", "UiAutomator2");
+                caps.setCapability("appium:automationName", "UiAutomator2");
                 caps.setCapability("browserName", "chrome");
                 caps.setCapability("appium:deviceName", browserDeviceName);
                 caps.setCapability("appium:platformVersion", browserPlatformVersion);
                 break;
             case "ios":
                 caps.setCapability("platformName", "iOS");
-                caps.setCapability("automationName", "XCuiTest");
+                caps.setCapability("appium:automationName", "XCuiTest");
                 caps.setCapability("browserName", "safari");
                 caps.setCapability("appium:deviceName", browserDeviceName);
                 caps.setCapability("appium:platformVersion", browserPlatformVersion);

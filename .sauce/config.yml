@@ -3,11 +3,14 @@ kind: imagerunner
 sauce:
   region: eu-central-1
 suites:
-  - name: Hosted Test Orchestration Demo
+  - name: Hosted Test Orchestration Demo for Web
     workload: webdriver
-#    image: $DOCKERHUB_USERNAME/cross-platform-best-practices-java-docker:latest
+#    image: $DOCKERHUB_USERNAME/sauce-java-appium-cross-platform-docker:latest
     image: eyalyovelsauce/cross-platform-best-practices-java-docker:0.0.1
     entrypoint: mvn test -pl testng-xml -DtestngXmlFile=myDemoTests.xml -X
+    env:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
 #    imagePullAuth:
 #      user: $DOCKER_USERNAME
 #      token: $DOCKER_PASSWORD

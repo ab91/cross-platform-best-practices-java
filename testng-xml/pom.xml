@@ -13,8 +13,9 @@
 
     <properties>
         <testngXmlDir>src/test/resources/config</testngXmlDir>
-        <testngXmlFile>myDemoTests.xml</testngXmlFile>
+        <testngXmlFile>myDemoTests-Desktop.xml</testngXmlFile>
         <testng.version>7.5</testng.version>
+        <selenium.version>4.12.1</selenium.version>
     </properties>
 
     <dependencies>
@@ -22,6 +23,19 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
+        </dependency>
+
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
     </dependencies>
 
