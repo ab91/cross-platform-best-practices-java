@@ -10,8 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
-        <cucumber-java-version>7.2.3</cucumber-java-version>
+        <maven.surefire.version>3.2.5</maven.surefire.version>
+        <cucumber-java-version>7.15.0</cucumber-java-version>
         <junit4.version>4.13.2</junit4.version>
     </properties>
 

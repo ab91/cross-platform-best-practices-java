@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
+        <maven.surefire.version>3.2.5</maven.surefire.version>
         <junit4.version>4.13.2</junit4.version>
     </properties>
 

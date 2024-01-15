@@ -19,8 +19,8 @@
     <properties>
         <commons-logging.version>1.2</commons-logging.version>
         <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
-        <appium.version>8.2.0</appium.version>
-        <selenium.version>4.10.0</selenium.version>
+        <appium.version>9.0.0</appium.version>
+        <selenium.version>4.16.1</selenium.version>
     </properties>
 
     <dependencies>

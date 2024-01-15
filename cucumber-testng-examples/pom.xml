@@ -12,8 +12,8 @@
     <properties>
         <testngXmlDir>src/test/resources/config</testngXmlDir>
         <testngXmlFile>myDemoTests.xml</testngXmlFile>
-        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
-        <cucumber-java-version>7.2.3</cucumber-java-version>
+        <maven.surefire.version>3.2.5</maven.surefire.version>
+        <cucumber-java-version>7.15.0</cucumber-java-version>
         <testng.version>7.5</testng.version>
     </properties>
 
