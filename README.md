@@ -258,9 +258,9 @@ Running the Web App tests on Sauce Labs:
     mvn clean install -Dregion=eu -DtestngXmlFile=myDemoTests.xml
 > NOTE: Make sure you are in the folder `cucumber-testng-examples` when you execute these commands
 
-I created two xml files.
-[myDemoTests.xml](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml) - The parallel execution is done for each platform. So the tests for Chrome and Firefox will run in parallel but all the feature files for each platform will run sequentially.
-[myDemoParallelTests.xml](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoParallelTests.xml) - The parallel execution is done for each platform. So the tests for Chrome and Firefox will run in parallel and also the feature files for each platform will run in parallel.
+I created two xml files. <br />
+[myDemoTests.xml](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml) - The parallel execution is done for each platform. So the tests for Chrome and Firefox will run in parallel but all the feature files for each platform will run sequentially. <br />
+[myDemoParallelTests.xml](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoParallelTests.xml) - The parallel execution is done for each platform. So the tests for Chrome and Firefox will run in parallel and also the feature files for each platform will run in parallel.<br />
 Running the myDemoParallelTests.xml file:
 
     // If using the US DC
