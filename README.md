@@ -6,7 +6,7 @@ I will explain that using Java with the popular frameworks:
 - [JUnit5](#JUnit5) 
 - [TestNG](#TestNG) 
 - Cucumber + Junit4
-- Cucumber + TestNG 
+- [Cucumber+TestNG](#Cucumber+TestNG)
 
 I run my tests using Selenium and Appium. 
 
@@ -29,8 +29,8 @@ I run the tests on virtual machines and devices located on [SauceLabs platform](
 The tests run on 4 platforms:
 - BrowserName: Chrome, Version: Latest-1, OS: Mac 11 
 - BrowserName: Firefox, Version: Latest, OS: Windows 10
-- BrowserName: Chrome OS: Any avilable Samsung device, Android 12 
-- BrowserName: Safari OS: Any avilable iPhone device version 14
+- BrowserName: Chrome OS: Any available Samsung device, Android 12
+- BrowserName: Safari OS: Any available iPhone device version 14
 
 ## Cross-Browser and Cross-Device testing 
 Cross-browser testing or Cross-device testing 
@@ -239,3 +239,34 @@ This command will create a system env "SAUCE_TUNNEL_NAME" and will run a test on
 ```saucectl run -c ./.sauce/config_local.yml
 The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cross-platform/blob/main/.sauce/config_local.yml)
 
+## Cucumber+TestNG
+In my examples, I am using maven as the build automation tool, there are other tools such as Gradle.
+
+
+We can use the TestNG framework without an XML file, but I think that the TestNG XML file gives a lot of options for controlling and running on different platforms and using parallel executions.
+We define the path to the XML file in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/pom.xml#L36).
+
+In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml#L2), each test section is a platform that we want to run with the name of the capability and the value.
+Defining the parallel execution is done In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml#L2)
+It is easy to read the parameters from the xml file [to the test](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/java/com/saucelabs/stepdefinitions/BaseTest.java#L56) and set the capabilities according to the values
+
+Running the Web App tests on Sauce Labs:
+
+    // If using the US DC
+    mvn clean install -Dregion=us -DtestngXmlFile=myDemoTests.xml
+
+    // If using the EU DC
+    mvn clean install -Dregion=eu -DtestngXmlFile=myDemoTests.xml
+> NOTE: Make sure you are in the folder `cucumber-testng-examples` when you execute these commands
+
+I created two xml files.
+[myDemoTests.xml](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml) - The parallel execution is done for each platform. So the tests for Chrome and Firefox will run in parallel but all the feature files for each platform will run sequentially.
+[myDemoParallelTests.xml](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoParallelTests.xml) - The parallel execution is done for each platform. So the tests for Chrome and Firefox will run in parallel and also the feature files for each platform will run in parallel.
+Running the myDemoParallelTests.xml file:
+
+    // If using the US DC
+    mvn clean install -Dregion=us -DtestngXmlFile=myDemoParallelTests.xml
+
+    // If using the EU DC
+    mvn clean install -Dregion=eu -DtestngXmlFile=myDemoParallelTests.xml
+> NOTE: Make sure you are in the folder `cucumber-testng-examples` when you execute these commands
