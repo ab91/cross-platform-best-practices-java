@@ -8,7 +8,8 @@
 		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
 		<parameter name="sauce_screenResolution" value="1600x1200"></parameter>
 		<classes>
-			<class name="com.saucelabs.RunCucumberTest"></class>
+			<class name="com.saucelabs.RunCucumberBasicTest"></class>
+			<class name="com.saucelabs.RunCucumberLoginTest"></class>
 		</classes>
 	</test>
 
@@ -19,9 +20,11 @@
 		<parameter name="sauce_tags" value="Demo,Web,W3"></parameter>
 		<parameter name="sauce_screenResolution" value="1024x768"></parameter>
 		<classes>
-			<class name="com.saucelabs.RunCucumberTest"></class>
+			<class name="com.saucelabs.RunCucumberBasicTest"></class>
+			<class name="com.saucelabs.RunCucumberLoginTest"></class>
 		</classes>
 	</test>
+
 
 	<test name="Android Web Demo App" enabled="true">
 		<parameter name="browserName" value="chrome"></parameter>
@@ -32,7 +35,8 @@
 		<parameter name="sauce_appiumVersion" value="2.0.0"></parameter>
 		<parameter name="sauce_cacheId" value="android_web_123"></parameter>
 		<classes>
-			<class name="com.saucelabs.RunCucumberTest"></class>
+			<class name="com.saucelabs.RunCucumberBasicTest"></class>
+			<class name="com.saucelabs.RunCucumberLoginTest"></class>
 		</classes>
 	</test>
 
@@ -45,9 +49,9 @@
 		<parameter name="sauce_appiumVersion" value="2.0.0"></parameter>
 		<parameter name="sauce_cacheId" value="ios_web_123"></parameter>
 		<classes>
-			<class name="com.saucelabs.RunCucumberTest"></class>
+			<class name="com.saucelabs.RunCucumberBasicTest"></class>
+			<class name="com.saucelabs.RunCucumberLoginTest"></class>
 		</classes>
 	</test>
-
 
 </suite>
