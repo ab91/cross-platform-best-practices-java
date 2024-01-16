@@ -6,7 +6,7 @@ I will explain that using Java with the popular frameworks:
 - [JUnit5](#JUnit5) 
 - [TestNG](#TestNG) 
 - Cucumber + Junit4
-- [Cucumber+TestNG](#Cucumber+TestNG)
+- [Cucumber-TestNG](#Cucumber-TestNG)
 
 I run my tests using Selenium and Appium. 
 
@@ -239,7 +239,7 @@ This command will create a system env "SAUCE_TUNNEL_NAME" and will run a test on
 ```saucectl run -c ./.sauce/config_local.yml
 The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cross-platform/blob/main/.sauce/config_local.yml)
 
-## Cucumber+TestNG
+## Cucumber-TestNG
 In my examples, I am using maven as the build automation tool, there are other tools such as Gradle.
 
 
