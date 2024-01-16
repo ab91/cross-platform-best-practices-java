@@ -243,7 +243,7 @@ In my examples, I am using maven as the build automation tool, there are other t
 
 
 We can use the TestNG framework without an XML file, but I think that the TestNG XML file gives a lot of options for controlling and running on different platforms and using parallel executions.
-We define the path to the XML file in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/testng-xml/pom.xml#L36).
+We define the path to the XML file in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/pom.xml#L62).
 
 In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml#L2), each test section is a platform that we want to run with the name of the capability and the value.
 Defining the parallel execution is done In the [XML file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-testng-examples/src/test/resources/config/myDemoTests.xml#L2)
