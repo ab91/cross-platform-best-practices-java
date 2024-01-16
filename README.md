@@ -234,9 +234,8 @@ This command will create a system env "SAUCE_TUNNEL_NAME" and will run a test on
 9. The image should be in the docker Hub
 8. Run SO by using the saucectl:
 ```java
-        $ 
-
 ```saucectl run -c ./.sauce/config_local.yml
+```
 The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cross-platform/blob/main/.sauce/config_local.yml)
 
 ## Cucumber-TestNG
