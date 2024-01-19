@@ -100,6 +100,15 @@ public class BaseTest {
         testContext.setDriver(driver);
         System.out.format("BEFORE Thread ID - %2d - from scenario %s \n",
                 Thread.currentThread().getId(), scenario.getName());
+
+//        try
+//        {
+//            Thread.sleep(10000);
+//        }
+//        catch(InterruptedException ex)
+//        {
+//            Thread.currentThread().interrupt();
+//        }
     }
 
     @io.cucumber.java.After

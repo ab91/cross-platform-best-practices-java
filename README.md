@@ -5,7 +5,7 @@ I will explain that using Java with the popular frameworks:
 - [JUnit4](#JUnit4) 
 - [JUnit5](#JUnit5) 
 - [TestNG](#TestNG) 
-- Cucumber + Junit4
+- [Cucumber-Junit4](#Cucumber-JUnit4)
 - [Cucumber-TestNG](#Cucumber-TestNG)
 
 I run my tests using Selenium and Appium. 
@@ -237,6 +237,29 @@ This command will create a system env "SAUCE_TUNNEL_NAME" and will run a test on
 ```saucectl run -c ./.sauce/config_local.yml
 ```
 The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cross-platform/blob/main/.sauce/config_local.yml)
+
+## Cucumber-JUnit4
+In my examples, I am using maven as the build automation tool, there are other tools such as Gradle.  <br />
+In this example I run only on Chrome browser. The parallel execution is done in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-junit-examples/pom.xml#L55).  <br />
+The feature files are run in parallel on different Chrome browsers. More info about [here](https://cucumber.io/docs/guides/parallel-execution/?lang=java#junit-4)  <br />
+Running the Web App tests on Sauce Labs:
+
+    // If using the US DC
+    mvn clean install -Dregion=us
+
+    // If using the EU DC
+    mvn clean install -Dregion=eu
+
+Running the Web App tests on Sauce Labs using tags (you can run on different tags):
+
+    // If using the US DC
+    mvn clean install -Dregion=us -Dcucumber.filter.tags="@smokeTest or @passedTest"
+
+    // If using the EU DC
+    mvn clean install -Dregion=eu -Dcucumber.filter.tags="@smokeTest or @passedTest"
+
+> NOTE: Make sure you are in the folder `cucumber-juit-examples` when you execute these commands
+
 
 ## Cucumber-TestNG
 In my examples, I am using maven as the build automation tool, there are other tools such as Gradle.
