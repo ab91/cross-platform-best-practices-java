@@ -241,7 +241,7 @@ The saucectl config file is [here](https://github.com/eyaly/sauce-java-appium-cr
 ## Cucumber-JUnit4
 In my examples, I am using maven as the build automation tool, there are other tools such as Gradle.  <br />
 In this example I run only on Chrome browser. The parallel execution is done in the [pom file](https://github.com/eyaly/cross-platform-best-practices-java/blob/main/cucumber-junit-examples/pom.xml#L55).  <br />
-The feature files are run in parallel on different Chrome browsers. More info about [here](https://cucumber.io/docs/guides/parallel-execution/?lang=java#junit-4)  <br />
+The feature files are run in parallel on different Chrome browsers. More info can be found [here](https://cucumber.io/docs/guides/parallel-execution/?lang=java#junit-4)  <br />
 Running the Web App tests on Sauce Labs:
 
     // If using the US DC
