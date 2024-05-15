@@ -1,4 +1,4 @@
 browserName=firefox / browserVersion=latest/ platformName=windows 10 / sauce_tags=Demo Web W3 / sauce_screenResolution=1600x1200
 browserName=chrome/ browserVersion=latest-1 / platformName=macOS 11.00 / sauce_tags=Demo Web W3 / sauce_screenResolution=1024x768
-browserName=chrome / platformName=android / automationName=UiAutomator2 / appium:deviceName=samsung.* / appium:platformVersion=12 / sauce_cacheId=android_web_123
-browserName=safari / platformName=iOS / automationName=XCuiTest / appium:deviceName=iPhone.* / appium:platformVersion=14 / sauce_cacheId=ios_web_123
+browserName=chrome / platformName=android / appium:automationName=UiAutomator2 / appium:deviceName=samsung.* / appium:platformVersion=12 / sauce_cacheId=android_web_123
+browserName=safari / platformName=iOS / appium:automationName=XCuiTest / appium:deviceName=iPhone.* / appium:platformVersion=14 / sauce_cacheId=ios_web_123
